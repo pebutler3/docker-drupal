@@ -14,4 +14,4 @@ This is to serve as a starting template for Sparkbox Drupal projects.
 - `docker-compose up`
 - Navigate to `localhost:8080` and follow installation prompts.
 
-**<span style="color:red">The `Host` is the name of your database.</span>**
+**The `Host` is the name of your database (Named in .env).**
