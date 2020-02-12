@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  drupal:
+    image: drupal:8-apache
+    ports:
+      - 8080:80
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+      # this takes advantage of the feature in Docker that a new anonymous
+      # volume (which is what we're creating here) will be initialized with the
+      # existing content of the image at the same location
+      - /var/www/html/sites
+    restart: always
+
+  sbxdrupal:
+    build: .
+    container_name: sbxdrupal
+    ports:
+      - "80:80"
+    volumes:
+      - ./drupal:/var/www/html
+    restart: always
+
+  sbxdrupal_db:
+    image: "mysql:5.6"
+    container_name: ${MYSQL_DATABASE} 
+    restart: always
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+      - ./db-import:/docker-entrypoint-initdb.d
+    restart: always
+    env_file:
+      - .env
