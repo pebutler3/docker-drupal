@@ -11,9 +11,13 @@ else
 fi
 
 mkdir drupal
-mkdir drupal/web
+
 curl -fSL "https://ftp.drupal.org/files/projects/drupal-${DRUPAL_VERSION}.tar.gz" -o drupal.tar.gz
-mv drupal.tar.gz drupal/web
-cd drupal/web
+
+mv drupal.tar.gz drupal/
+
+cd drupal
+
 tar -zx --strip-components=1 -f drupal.tar.gz
+
 rm drupal.tar.gz

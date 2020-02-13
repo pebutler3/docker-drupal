@@ -4,7 +4,7 @@ This is to serve as a starting template for Sparkbox Drupal projects.
 ## Requirements
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/install/) ( Should be installed with Docker)
-- `.env`
+- `.env` see `.env.example`
 
 ## Installation Instructions
 - clone this repo
